@@ -1,0 +1,18 @@
+<label class="select-card" for="{{value}}">
+  <div class="card-header">
+    <div class="left">
+      <input type="radio" id="{{value}}" [value]="value" [formControl]="control" />
+      <span class="label">{{label}}</span>
+    </div>
+
+    <div class="right">
+      <span class="badge badge-green" *ngIf="featured">
+        Recomendado
+      </span>
+    </div>
+  </div>
+  <p>{{subtext}}</p>
+  <div id="children" *ngIf="active">
+    <ng-content></ng-content>
+  </div>
+</label>

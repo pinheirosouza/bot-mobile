@@ -1,0 +1,11 @@
+.field-icon {
+	position: absolute;
+	right: 15px;
+	margin-top: 40px;
+	z-index: 2;
+	cursor: pointer;
+	color: var(--color-gray-400);
+	&:hover {
+		color: var(--color-gray-500);
+	}
+}

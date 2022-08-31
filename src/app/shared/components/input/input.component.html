@@ -1,0 +1,57 @@
+<div class="form-group w-full" [class.invalid]="control?.errors && control?.touched">
+  <label [for]="'input-id-' + label" *ngIf="label">{{ label }}</label>
+
+  <input [id]="'input-id-' + label" [type]="type" [placeholder]="placeholder" [formControl]="control"
+    [disabled]="disabled" />
+
+  <span *ngIf="type == 'password'" class="field-icon" (click)="show()"><i class="fa fa-eye"></i></span>
+
+  <span *ngIf="type == 'search'" class="field-icon" (click)="show()"><i class="fa fa-eye-slash"></i></span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.required">Este campo é obrigatório.</span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.email">E-mail inválido. Garanta que seu email
+    esteja no formato corrreto. Ex: exemplo@mail.com
+  </span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.alreadyExists">Já existe uma conta cadastrada
+    com este email.</span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.pattern">Formato inválido.
+  </span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.invalidURL">Garanta que sua URL
+    esteja no formato abaixo: https://www.ifood.com.br/delivery/guarulhos-sp/pizzaria-do-pe...
+  </span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.invalidCEP"> CEP inválido. Garanta que está no
+    formato correto. Ex: 12345-678
+  </span>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.CEPnotFounded"> CEP não encontrado.
+  </span>
+
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.cpfCnpjInvalid
+    ">CPF ou CNPJ inválido. Certifique-se de ter digitado corretamente.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.passwordConfirmation
+    ">As senhas não coincidem.</span>
+  <span class="error-message" *ngIf="
+      control?.touched && !control?.errors?.required && control?.errors?.min
+    ">Este campo precisa ter mais de {{ control?.errors?.min?.min }} caracteres.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.minlength
+    ">Este campo precisa ter mais de {{ control?.errors?.minlength?.requiredLength }} caracteres.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.maxlength
+    ">Este campo precisa ter menos de {{ control?.errors?.maxlength?.requiredLength }} caracteres.</span>
+</div>

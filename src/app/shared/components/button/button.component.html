@@ -1,0 +1,16 @@
+<button
+	[class]="className"
+	(click)="btnClicked()"
+	[type]="type"
+	[disabled]="disabled || isLoading"
+>
+	<div *ngIf="isLoading" class="spinner">
+		<div class="double-bounce1"></div>
+		<div class="double-bounce2"></div>
+	</div>
+
+	<span *ngIf="!isLoading">
+		<i [ngClass]="icon" *ngIf="icon"></i>
+		{{label}}
+	</span>
+</button>

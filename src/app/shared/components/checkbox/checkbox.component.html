@@ -1,0 +1,70 @@
+<div
+	class="form-group"
+	[class.invalid]="control?.errors && control?.touched"
+>
+  <div class="checkbox-wrapper">
+    <input type="checkbox" [checked]="checked" [id]="'input-id-' + label" [name]="'input-id-' + label">
+    <label [for]="'input-id-' + label">{{ label }}</label>
+  </div>
+
+	<span
+		class="error-message"
+		*ngIf="control?.touched && control?.errors?.required"
+		>Este campo é obrigatório.</span
+	>
+
+  <span
+		class="error-message"
+		*ngIf="control?.touched && control?.errors?.email"
+		>E-mail inválido.
+  </span>
+
+	<span
+		class="error-message"
+		*ngIf="control?.touched && control?.errors?.pattern"
+		>Formato inválido.
+  </span>
+	<span
+		class="error-message"
+		*ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.cpfCnpjInvalid
+    "
+		>Documento inválido.</span
+	>
+	<span
+		class="error-message"
+		*ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.passwordConfirmation
+    "
+		>As senhas não coincidem.</span
+	>
+	<span
+		class="error-message"
+		*ngIf="
+      control?.touched && !control?.errors?.required && control?.errors?.min
+    "
+		>O mínimo é {{ control?.errors?.min?.min }}.</span
+	>
+	<span
+		class="error-message"
+		*ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.minlength
+    "
+		>O tamanho mínimo é {{ control?.errors?.minlength?.requiredLength }}.</span
+	>
+	<span
+		class="error-message"
+		*ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.maxlength
+    "
+		>O tamanho máximo é {{ control?.errors?.maxlength?.requiredLength }}.</span
+	>
+</div>

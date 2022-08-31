@@ -1,0 +1,12 @@
+main {
+	display: flex;
+	gap: var(--space-xs);
+	margin: var(--space-sm) var(--space-sm);
+	align-items: center;
+	justify-content: center;
+
+	span {
+		font-weight: 600;
+		font-size: var(--font-size-sm);
+	}
+}

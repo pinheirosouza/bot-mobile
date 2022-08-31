@@ -1,0 +1,21 @@
+<main>
+    <app-header>
+    </app-header>
+    <section>
+        <div class="main-container" style="padding: 20px;">
+            <h3>
+                Insira seu token abaixo e ative seu robô
+            </h3>
+            <form [formGroup]="form">
+                <app-input label="Token" placeholder="Insira seu token" [control]="form.controls.token"></app-input>
+
+                <app-button className="btn btn-primary" label="Ativar Robô">
+                </app-button>
+            </form>
+
+
+        </div>
+
+    </section>
+
+</main>

@@ -1,0 +1,37 @@
+<div class="form-group w-full" [class.invalid]="control?.errors && control?.touched">
+  <label [for]="'input-id-' + label">{{ label }}</label>
+  <select [id]="'input-id-' + label" [formControl]="control">
+    <option value="" disabled selected>{{placeholder}}</option>
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+
+  <span class="error-message" *ngIf="control?.touched && control?.errors?.required">Este campo é obrigatório.</span>
+  <span class="error-message" *ngIf="
+      control?.touched && !control?.errors?.required && control?.errors?.pattern
+    ">Formato inválido.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.cpfCnpjInvalid
+    ">Documento inválido.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.passwordConfirmation
+    ">As senhas não coincidem.</span>
+  <span class="error-message" *ngIf="
+      control?.touched && !control?.errors?.required && control?.errors?.min
+    ">O mínimo é {{ control?.errors?.min?.min }}.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.minlength
+    ">O tamanho mínimo é {{ control?.errors?.minlength?.requiredLength }}.</span>
+  <span class="error-message" *ngIf="
+      control?.touched &&
+      !control?.errors?.required &&
+      control?.errors?.maxlength
+    ">O tamanho máximo é {{ control?.errors?.maxlength?.requiredLength }}.</span>
+</div>
